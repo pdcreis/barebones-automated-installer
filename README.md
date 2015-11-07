@@ -1,9 +1,15 @@
-# Barebones automated installer
-Automated WordPress and Barebones installation via CLI
+# WordPress and Barebones automated installer
+Basic command-line tool to install the latest version of WordPress and [Barebones](https://github.com/benchmarkstudios/barebones) boilerplate theme (all its submodules are also installed).
 
-Simply move the file to your /usr/local/bin directory, and run 'barebones name_of_the_project'. This will automatically download the latest version of WordPress and install Barebones and all its submodules.
+### Tasks
 
-Or:
+* Downloads latest version of WordPress and renames the directory to the project name you've given
+* Creates .gitignore file with basic 'ignorable' files/directories
+* Removes pre-installed WordPress plugins and themes
+* Installs Barebones (and renames it to the project name you've given) and all its submodules
+* Installs npm dependencies
+
+### Installation
 
 ```
 git clone https://github.com/pdcreis/barebones-automated-installer.git
@@ -12,8 +18,7 @@ mv barebones-automated-installer/barebones /usr/local/bin
 rm -rf barebones-automated-installer
 ```
 
-And:
+### Usage
 
-`barebones name_of_the_project`
-
-(The admin password will be asked in order to install node modules)
+Just run `barebones name_of_the_project`, enter your admin password when asked (in order to install node modules), and it's done. 
+*The name_of_the_project will be used for your project directory such as the theme directory.*
