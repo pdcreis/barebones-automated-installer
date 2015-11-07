@@ -6,10 +6,10 @@ Simply move the file to your /usr/local/bin directory, and run 'barebones name_o
 Or:
 
 ```
-git clone https://gist.github.com/ec4f6f3c3fb8540e2c3f.git
-chmod +x ec4f6f3c3fb8540e2c3f/barebones
-mv ec4f6f3c3fb8540e2c3f/barebones /usr/local/bin
-rm -rf ec4f6f3c3fb8540e2c3f
+git clone https://github.com/pdcreis/barebones-automated-installer.git
+chmod +x barebones-automated-installer/barebones
+mv barebones-automated-installer/barebones /usr/local/bin
+rm -rf barebones-automated-installer
 ```
 
 And:
