@@ -50,7 +50,7 @@ wp-content/themes/*/node_modules' > .gitignore
     cd $project
     git submodule init
     git submodule update
-    rm -rf assets/sass/vendor/simple-grid/.*
+    rm -rf .* assets/sass/vendor/simple-grid/.*
 
     # 6. Install all npm dependencies
     sudo npm install
