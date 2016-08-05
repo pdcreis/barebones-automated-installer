@@ -43,7 +43,7 @@ wp-content/themes/*/node_modules' > .gitignore
     rm -rf */
 
     # 4. Clone barebones
-    git clone -b v2 https://github.com/benchmarkstudios/barebones
+    git clone https://github.com/benchmarkstudios/barebones
     mv barebones $project
 
     # 5. Install barebones submodules
