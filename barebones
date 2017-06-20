@@ -13,10 +13,10 @@ function barebones() {
     rm latest.tar.gz
     cd ~/Sites/$project
 
-    # 3. Remove unnecessary files and create .gitignore file
+    # 3. Remove unnecessary files
     rm license.txt readme.html
 
-    ## 3.1. Create .gitignore
+    # 4. Create .gitignore file
     echo '.DS_Store
 [Tt]humbs.db
 .Trashes
@@ -34,25 +34,31 @@ wp-content/wp-cache-config.php
 wp-content/themes/*/.sass-cache
 wp-content/themes/*/node_modules' > .gitignore
 
-    ## 3.2. Remove unnecessary plugins
+    # 5. Plugins
+    ## 5.1. Remove unnecessary plugins
     cd wp-content/plugins
     rm -rf */ hello.php
 
-    ## 3.3. Remove unnecessary themes
+    ## 5.2. Clone ACF PRO and Regenerate Thumbnails
+    git clone https://github.com/wp-premium/advanced-custom-fields-pro.git
+    git clone https://github.com/Viper007Bond/regenerate-thumbnails.git
+
+    # 6. Themes
+    ## 6.1. Remove unnecessary themes
     cd ../themes
     rm -rf */
 
-    # 4. Clone barebones
+    ## 6.2. Clone barebones
     git clone https://github.com/benchmarkstudios/barebones
     mv barebones $project
 
-    # 5. Install barebones submodules
+    ## 6.3. Install barebones submodules
     cd $project
     git submodule init
     git submodule update
     rm -rf .* README.md assets/sass/vendor/simple-grid/.* assets/sass/vendor/simple-grid/README.md
 
-    # 6. Install all npm dependencies
+    # 7. Install all npm dependencies
     sudo npm install
 }
 
