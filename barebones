@@ -42,6 +42,7 @@ wp-content/themes/*/node_modules' > .gitignore
     ## 5.2. Clone ACF PRO and Regenerate Thumbnails
     git clone https://github.com/wp-premium/advanced-custom-fields-pro.git
     git clone https://github.com/Viper007Bond/regenerate-thumbnails.git
+    git clone https://github.com/Yoast/wordpress-seo.git
 
     # 6. Themes
     ## 6.1. Remove unnecessary themes
