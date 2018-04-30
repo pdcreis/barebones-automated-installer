@@ -60,7 +60,7 @@ wp-content/themes/*/node_modules' > .gitignore
     rm -rf .* README.md assets/sass/vendor/simple-grid/.* assets/sass/vendor/simple-grid/README.md
 
     # 7. Install all npm dependencies
-    sudo npm install
+    npm install
 }
 
 barebones $1
