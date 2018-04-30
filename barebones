@@ -39,10 +39,17 @@ wp-content/themes/*/node_modules' > .gitignore
     cd wp-content/plugins
     rm -rf */ hello.php
 
-    ## 5.2. Clone ACF PRO and Regenerate Thumbnails
+    ## 5.2. Download useful plugins
     git clone https://github.com/wp-premium/advanced-custom-fields-pro.git
-    git clone https://github.com/Viper007Bond/regenerate-thumbnails.git
-    git clone https://github.com/Yoast/wordpress-seo.git
+
+    wget https://downloads.wordpress.org/plugin/regenerate-thumbnails.zip
+    wget https://downloads.wordpress.org/plugin/simple-history.2.20.zip
+    wget https://downloads.wordpress.org/plugin/wordpress-seo.7.3.zip
+
+    tar -xvzf regenerate-thumbnails.zip
+    tar -xvzf simple-history.2.20.zip
+    tar -xvzf wordpress-seo.7.3.zip
+    rm *.zip
 
     # 6. Themes
     ## 6.1. Remove unnecessary themes
