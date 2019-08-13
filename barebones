@@ -43,12 +43,14 @@ wp-content/themes/*/node_modules' > .gitignore
     git clone https://github.com/wp-premium/advanced-custom-fields-pro.git
 
     wget https://downloads.wordpress.org/plugin/regenerate-thumbnails.zip
-    wget https://downloads.wordpress.org/plugin/simple-history.2.20.zip
-    wget https://downloads.wordpress.org/plugin/wordpress-seo.7.3.zip
+    wget https://downloads.wordpress.org/plugin/simple-history.zip
+    wget https://downloads.wordpress.org/plugin/wordpress-seo.zip
+    wget https://downloads.wordpress.org/plugin/classic-editor.zip
 
     tar -xvzf regenerate-thumbnails.zip
-    tar -xvzf simple-history.2.20.zip
-    tar -xvzf wordpress-seo.7.3.zip
+    tar -xvzf simple-history.zip
+    tar -xvzf wordpress-seo.zip
+    tar -xvzf classic-editor.zip
     rm *.zip
 
     # 6. Themes
@@ -67,6 +69,9 @@ wp-content/themes/*/node_modules' > .gitignore
 
     ## 6.4. Remove unnecessary stuff
     rm -rf .git .gitattributes .gitignore .gitmodules README.md CHANGELOG.md assets/styles/vendor/simple-grid/.* assets/styles/vendor/simple-grid/README.md
+    
+    ## 6.5 Create ACF folder
+    mkdir acf-json
 
     # 7. Install all npm dependencies
     npm install
