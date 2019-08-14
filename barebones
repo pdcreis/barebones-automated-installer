@@ -51,7 +51,7 @@ wp-content/themes/*/node_modules' > .gitignore
     tar -xvzf simple-history.zip
     tar -xvzf wordpress-seo.zip
     tar -xvzf classic-editor.zip
-    rm -rf *.zip .git
+    rm -rf *.zip */.git
 
     # 6. Themes
     ## 6.1. Remove unnecessary themes
