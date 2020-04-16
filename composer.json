@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "Benchmark",
-            "email": "hello@benchmark.co.uk",
+            "email": "hello@benchmark.co.uk"
         }
     ],
     "minimum-stability": "dev",
