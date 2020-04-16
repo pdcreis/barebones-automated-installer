@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 function barebones() {
+
+    # Variables
+    GREEN='\033[0;32m'
+    GREY='\033[0;90m'
+    BOLD='\033[1;37m'
+    RESET='\033[0m'
+
     # 0. The project name
     project=$1
 
@@ -35,23 +42,30 @@ wp-content/themes/*/.sass-cache
 wp-content/themes/*/node_modules' > .gitignore
 
     # 5. Plugins
-    ## 5.1. Remove unnecessary plugins
     cd wp-content/plugins
-    rm -rf */ hello.php
+
+    ## 5.1. Remove unnecessary plugins
+    read -p "$(echo -e $GREEN"?"$RESET$BOLD" Do you want to remove unnecessary plugins?"$RESET$GREY" (y/n)"$RESET) " INPUT_VARIABLE CONT
+    if [ "$CONT" = "y" ]; then
+        rm -rf */ hello.php
+    fi
 
     ## 5.2. Download useful plugins
-    git clone https://github.com/wp-premium/advanced-custom-fields-pro.git
+    read -p "$(echo -e $GREEN"?"$RESET$BOLD" Do you want to install our recommended plugins?"$RESET$GREY" (y/n)"$RESET) " INPUT_VARIABLE CONT
+    if [ "$CONT" = "y" ]; then
+        git clone https://github.com/wp-premium/advanced-custom-fields-pro.git
 
-    wget https://downloads.wordpress.org/plugin/regenerate-thumbnails.zip
-    wget https://downloads.wordpress.org/plugin/simple-history.zip
-    wget https://downloads.wordpress.org/plugin/wordpress-seo.zip
-    wget https://downloads.wordpress.org/plugin/classic-editor.zip
+        wget https://downloads.wordpress.org/plugin/regenerate-thumbnails.zip
+        wget https://downloads.wordpress.org/plugin/simple-history.zip
+        wget https://downloads.wordpress.org/plugin/wordpress-seo.zip
+        wget https://downloads.wordpress.org/plugin/classic-editor.zip
 
-    tar -xvzf regenerate-thumbnails.zip
-    tar -xvzf simple-history.zip
-    tar -xvzf wordpress-seo.zip
-    tar -xvzf classic-editor.zip
-    rm -rf *.zip */.git
+        tar -xvzf regenerate-thumbnails.zip
+        tar -xvzf simple-history.zip
+        tar -xvzf wordpress-seo.zip
+        tar -xvzf classic-editor.zip
+        rm -rf *.zip */.git
+    fi
 
     # 6. Themes
     ## 6.1. Remove unnecessary themes
@@ -59,7 +73,28 @@ wp-content/themes/*/node_modules' > .gitignore
     rm -rf */
 
     ## 6.2. Clone barebones
-    git clone -b v3.1.0 https://github.com/benchmarkstudios/barebones
+    echo -e "${GREEN}?${RESET} ${BOLD}Choose the Barebones version you want to install:${RESET}"
+
+    PS3='Please select an option: '
+
+    options=("3.0.0 LST" "3.1.0 Current")
+    select opt in "${options[@]}"
+    do
+        case $opt in
+            "3.1.0 Current")
+                git clone -b v3.1.0 https://github.com/benchmarkstudios/barebones
+                break
+                ;;
+            "3.0.0 LST")
+                git clone https://github.com/benchmarkstudios/barebones
+                break
+                ;;
+            *) 
+                echo "Invalid option $REPLY"
+                ;;
+        esac
+    done
+    
     mv barebones $project
 
     ## 6.3. Install barebones submodules
@@ -68,13 +103,16 @@ wp-content/themes/*/node_modules' > .gitignore
     git submodule update
 
     ## 6.4. Remove unnecessary stuff
-    rm -rf .git .gitattributes .gitignore .gitmodules README.md CHANGELOG.md assets/styles/vendor/simple-flex/.* assets/styles/vendor/simple-flex/README.md
+    rm -rf .git .gitattributes .gitignore .gitmodules README.md CHANGELOG.md assets/styles/vendor/*/.* assets/styles/vendor/*/README.md
     
     ## 6.5 Create ACF folder
     mkdir acf-json
 
     # 7. Install all npm dependencies
     npm install
+
+    # 8. Fix potential problems
+    npm audit fix --force
 }
 
 barebones $1
