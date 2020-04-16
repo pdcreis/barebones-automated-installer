@@ -10,6 +10,6 @@
             "email": "hello@benchmark.co.uk"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "dev-master",
     "prefer-stable": true
 }
