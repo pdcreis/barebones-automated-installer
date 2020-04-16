@@ -8,8 +8,8 @@
         {
             "name": "Benchmark",
             "email": "hello@benchmark.co.uk",
-            "homepage": "https://benchmark.co.uk",
-            "role": "Developer"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
