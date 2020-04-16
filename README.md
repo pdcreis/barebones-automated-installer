@@ -12,7 +12,7 @@ Basic command-line tool to install the latest version of WordPress and [Barebone
 ### Installation
 
 ```
-git clone https://github.com/benchmarkstudios/barebones-automated-installer.git
+git clone v1.1.0 https://github.com/benchmarkstudios/barebones-automated-installer.git
 chmod +x barebones-automated-installer/barebones
 mv barebones-automated-installer/barebones /usr/local/bin
 rm -rf barebones-automated-installer
